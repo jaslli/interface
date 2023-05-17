@@ -26,6 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ApiForm {
 
     /**
+     * 请求方法
+     */
+    private String method;
+
+    /**
      *  接口码
      */
     private String apiNo;

@@ -44,4 +44,8 @@ public class ApiResp {
         this.apiNo = form.getApiNo();
     }
 
+    public Boolean isSuccess() {
+        return this.getCode().equals(ApiCodeEnum.SUCCESS.code());
+    }
+
 }

@@ -10,11 +10,8 @@ import com.yww.api.modules.api.vo.ApiResp;
  * @author wilmiam
  * @since 2022-11-04 11:35
  */
-public interface IApiExec {
+public interface IApiCommon {
 
-    /**
-     *  验真签名
-     */
-    ApiResp signValid(ApiForm form);
+    ApiResp test(ApiForm apiForm);
 
 }
