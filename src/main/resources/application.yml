@@ -1,0 +1,70 @@
+server:
+  port: 9900
+  tomcat:
+    max-http-form-post-size: -1
+#配置数据源
+spring:
+  application:
+    name: INTERFACE-SERVER
+  servlet:
+    #上传文件限制
+    multipart:
+      #单个文件大小
+      max-file-size: 20MB
+      #设置总上传的数据大小
+      max-request-size: 100MB
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true #启用Servlet的Filter过滤器，需要的地方HttpServletRequestFilter
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    #数据库索引
+    database: 5
+    host: 127.0.0.1
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        min-idle: 10
+        max-active: 50
+        max-idle: 16
+        max-wait: 5000
+        time-between-eviction-runs: 1s
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: password
+      url: jdbc:mysql://127.0.0.0:3306/image?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+      initial-size: 3 # 初始化时建立物理连接的个数
+      min-idle: 5 # 最小连接池数量
+      max-active: 200 # 最大连接池数量
+      max-wait: 5000 # 获取连接时最大等待时间，单位毫秒
+      time-between-eviction-runs-millis: 60000 # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 100000 # 连接保持空闲而不被驱逐的最小时间
+      max-evictable-idle-time-millis: 300000 # 连接保持空闲而不被驱逐的最大时间
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      validation-query: select 1
+      webStatFilter:
+        enabled: true
+      #安全配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: GXfy2021
+      filter:
+        stat:
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true

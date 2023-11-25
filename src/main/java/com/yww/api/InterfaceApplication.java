@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author yww
+ * @since 2023/11/26
  */
 @SpringBootApplication
 public class InterfaceApplication {
